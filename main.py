@@ -123,7 +123,8 @@ while True:
 
         parameters = list()
 
-        print("Pisakan dengan komma untuk membuat array")
+        if fun.__code__.co_argcount > 0 :
+            print("Pisakan dengan komma untuk membuat array")
         for x in range(0, int(fun.__code__.co_argcount)):
 
             param = fun.__code__.co_varnames[x]

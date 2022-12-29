@@ -25,8 +25,6 @@ with open("temp.py", "w") as f:
 ###########################  END  ###############################
 
 
-
-
 from temp import *
 
 funcs = []
@@ -61,7 +59,7 @@ while True :
             param = fun.__code__.co_varnames[x]
 
             inp = input(f"Masukan nilai ({param}) : ")
-            
+
             if inp.__contains__(",") :
                 inp = inp.split(",")
 

@@ -6,7 +6,7 @@
 This file is auto-generated in main.py and used for main.py, run main.py to run the code in this file
 File ini dibuat otomatis di main.py dan digunakan untuk main.py, jalankan main.py untuk menjalan kode  di file ini
 
-Generated : 2022-12-29 18:57:09.546402
+Generated : 2022-12-29 18:59:51.658997
 """
 def Faktorial(bilangan:str) :
 

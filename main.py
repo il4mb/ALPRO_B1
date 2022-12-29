@@ -105,7 +105,7 @@ index = 1
 
 for key, value in list(globals().items()):
     
-    if callable(value) and value.__module__ != __name__ and value != '__nonzero__':
+    if callable(value) and value.__module__ != __name__ and not key.__contains__("__"):
         funcs.append(key)
         msg += f"{index} => {key}\n"
         index += 1

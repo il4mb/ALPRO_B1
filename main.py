@@ -1,5 +1,5 @@
 """
-    JANGAN EDIT JALANKAN SAJA
+    JALANKAN FILE INI
 """
 
 import glob
@@ -10,6 +10,8 @@ def readLines(file):
     with open(file) as f:
         lines = f.readlines()
     return lines
+
+# EDIT GANTI MENJADI FOLDER TUJUAN
 dir = 'pertemuan_10'
 main_dir = os.getcwd() + '\\' + dir
 modules = glob.glob(os.path.join(main_dir, "*.py"))
@@ -20,7 +22,7 @@ with open("temp.py", "w") as f:
         for line in lines:
             f.write(line)
         f.write("\n\n")
-        
+
 ###########################  END  ###############################
 
 

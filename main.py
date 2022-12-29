@@ -3,7 +3,7 @@ import os, datetime
 
 
 # EDIT GANTI MENJADI FOLDER TUJUAN
-dir = 'pertemuan_10'
+dir = '/pertemuan_10'
 
 ###########################  START  ###############################
 def readLines(file):
@@ -12,7 +12,7 @@ def readLines(file):
         lines = f.readlines()
     return lines
 
-main_dir = os.getcwd() + '\\' + dir
+main_dir = os.path.join(os.getcwd(), dir)
 modules = glob.glob(os.path.join(main_dir, "*.py"))
 with open("temp.py", "w") as f:
     f.write(f"\"\"\"\n{'THIS FILE CREATE PROGRAMATICALLY': ^50}\n{'FILE INI DIBUAT SECARA OTOMATIS': ^50}\n{'!!!TIDAK PERLU MENGEDIT DILE INI!!!': ^50}\n\nThis file is auto-generated in main.py and used for main.py, run main.py to run the code in this file\nFile ini dibuat otomatis di main.py dan digunakan untuk main.py, jalankan main.py untuk menjalan kode  di file ini\n\nGenerated : {datetime.datetime.now()}\n\"\"\"\n")
@@ -30,7 +30,7 @@ with open("temp.py", "w") as f:
 from temp import *
 
 fun = []
-msg = "Daftar funtion yang terbaca :\n"
+msg = "Daftar function yang terbaca :\n"
 index = 1
 for key, value in list(globals().items()):
     if callable(value) and value.__module__ != __name__:
@@ -38,6 +38,8 @@ for key, value in list(globals().items()):
         fun.append(key)
         msg += f"{index} => {key}\n"
         index +=1
+if len(fun) <= 0 :
+    msg += f"{'** Null **': ^25}\n"
 
 while True :
 

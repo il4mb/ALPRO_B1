@@ -3,7 +3,10 @@
          FILE INI DIBUAT SECARA OTOMATIS          
        !!!TIDAK PERLU MENGEDIT DILE INI!!!        
 
-Generated : 2022-12-29 14:21:55.582647
+This file is auto-generated in main.py and used for main.py, run main.py to run the code in this file
+File ini dibuat otomatis di main.py dan digunakan untuk main.py, jalankan main.py untuk menjalan kode  di file ini
+
+Generated : 2022-12-29 14:26:55.321445
 """
 def Faktorial(param:str) :
 

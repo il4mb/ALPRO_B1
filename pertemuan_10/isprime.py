@@ -1,4 +1,4 @@
-def IsPrime(param: str) :
+def IsPrime(param) :
 
     if param.isnumeric() :
         x = int(param)

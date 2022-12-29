@@ -6,95 +6,58 @@
 This file is auto-generated in main.py and used for main.py, run main.py to run the code in this file
 File ini dibuat otomatis di main.py dan digunakan untuk main.py, jalankan main.py untuk menjalan kode  di file ini
 
-Generated : 2022-12-29 16:03:33.059000
+Generated : 2022-12-29 18:12:50.246559
 """
-def hallo(name):
-
-    return str(f"output => Hallo {name}")
-
-def hitung_kalimat(kalimat=None, include_space=False):
-
-    print(f"{ ' HITUNG KALIMAT '.upper() :-^45}\n")
-
-    if kalimat is None:
-        kalimat = input("Masukan kalimat : ")
-
-    def tambahkan(char):
-        if char in temp:
-            temp[char] += 1
-        else:
-            temp[char] = 1
-
-    temp = {}
-    for x in kalimat:
-        if include_space:
-            tambahkan(x.lower())
-        elif x != " ":
-            tambahkan(x.lower())
-
-    charts = sorted(temp.items(), key=lambda x: x[1])
-    charts = dict(charts)
-    keys = charts.keys()
+def Faktorial(param:str) :
 
     out = ""
-    for x in keys:
-        out += f"{x.upper()} => {charts[x]}\n"
+    if param.isnumeric() :
+        borrow = 1
+        for x in range( 1 , int(param)+1) :
+            out += f"{x: <3} faktorial => {x * borrow}\n"
+            borrow = x * borrow
 
     return out
 
-def luas_persegi_panjang(panjang, lebar):
-    return f"output => Luas persegi panjang adalah : { float(int(panjang) * int(lebar)) }"
+def Fibonanci(param:str) :
+    out = ""
+    if param.isnumeric() :
+        param = int(param)
+        a,b=0,1
+        while b < param :
+            out += f"{b}\n"
+            a,b = b, int(a+b)
+    return out
 
+def IsPrime(param) :
 
-def keliling_persegi_panjang(panjang, lebar):
-    return f"output => Keliling persegi panjang adalah : { float(2 * (int(panjang) + int(lebar))) }"
+    if param.isnumeric() :
+        x = int(param)
+        if x == 2 or x == 3 : return True
+        if x%2 == 0 or x < 2 : return False
+        for i in range(3, int(x**.5)+1, 2) :
+            if x%i == 0 :
+                return False
+        return True
+    return False
 
+def Mengurutkan(array) :
+    
+    lis = list(array)
 
-def min(array :list):
+    for i in range(len(lis) -1, -1, -1) :
+        for ii in range(0, i) :
 
-    val = int(array.__getitem__(0))
+            try :
+                if int(lis[i]) < int(lis[ii]) :
+                    tem = int(lis[i])
+                    lis[i] = int(lis[ii])
+                    lis[ii] = tem
+            except :
+                if ord(lis[i]) < ord(lis[ii]) :
+                    tem = lis[i]
+                    lis[i] = lis[ii]
+                    lis[ii] = tem
 
-    for x in array:
-        x = int(x)
-        if x < val:
-            val = x
-
-    return f"output => {val}"
-
-def max(array=None):
-
-    val = int(array.__getitem__(0))
-
-    for x in array:
-        x = int(x)
-        if x > val:
-            val = x
-
-    return f"output => {val}"
-
-
-def rata2(array):
-
-    _len = len(array)
-    _sum = sum(array)
-
-    return f"output => {float(_sum / _len)}"
-
-def potong(x=None):
-
-    print(f"{ ' POTONG '.upper() :-^45}\n")
-
-    if x is None:
-        x = int(input("Masukan nilai belanja : "))
-
-    dis = 0
-    if x < 1000000:
-        dis = 0
-    elif x >= 1000000 and x < 5000000:
-        dis = (20/100) * x
-    elif x >= 5000000:
-        dis = (35/100) * x
-
-    print(f"Besar diskon yang diberikan : {dis:.2f}")
-    print(f"Besar harga yang harus di bayarkan : {x - dis:.2f}")
+    return f"output => {lis}"
 

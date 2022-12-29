@@ -1,24 +1,19 @@
-def Mengurutkan(param: str) :
-
-    if param.__contains__(',') :
-        param = param.split(',')
-
-    lis = list(param)
+def Mengurutkan(array) :
+    
+    lis = list(array)
 
     for i in range(len(lis) -1, -1, -1) :
         for ii in range(0, i) :
 
-            if lis[i].isdigit() and lis[ii].isdigit() :
-                if lis[i] < lis[ii] :
-                    tem = lis[i]
-                    lis[i] = lis[ii]
+            try :
+                if int(lis[i]) < int(lis[ii]) :
+                    tem = int(lis[i])
+                    lis[i] = int(lis[ii])
                     lis[ii] = tem
-            else :
+            except :
                 if ord(lis[i]) < ord(lis[ii]) :
                     tem = lis[i]
                     lis[i] = lis[ii]
                     lis[ii] = tem
-
-
 
     return f"output => {lis}"

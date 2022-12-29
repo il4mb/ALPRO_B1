@@ -24,6 +24,8 @@ def max(array=None):
 def rata2(array):
 
     _len = len(array)
-    _sum = sum(array)
+    _sum = 0
+    for x in array :
+        _sum += int(x)
 
     return f"output => {float(_sum / _len)}"

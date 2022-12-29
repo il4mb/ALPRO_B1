@@ -1,17 +1,15 @@
-def potong(x=None):
+def potong(nominal):
 
-    print(f"{ ' POTONG '.upper() :-^45}\n")
-
-    if x is None:
-        x = int(input("Masukan nilai belanja : "))
-
+    nominal = int(nominal)
     dis = 0
-    if x < 1000000:
-        dis = 0
-    elif x >= 1000000 and x < 5000000:
-        dis = (20/100) * x
-    elif x >= 5000000:
-        dis = (35/100) * x
 
-    print(f"Besar diskon yang diberikan : {dis:.2f}")
-    print(f"Besar harga yang harus di bayarkan : {x - dis:.2f}")
+    if nominal < 1000000:
+        dis = 0
+
+    elif nominal >= 1000000 and nominal < 5000000:
+        dis = (20/100) * nominal
+
+    elif nominal >= 5000000:
+        dis = (35/100) * nominal
+
+    return f"Besar diskon yang diberikan : {dis:.2f}\nBesar harga yang harus di bayarkan : {nominal - dis:.2f}"

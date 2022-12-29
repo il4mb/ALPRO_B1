@@ -4,7 +4,7 @@ import datetime
 
 
 # EDIT GANTI MENJADI FOLDER TUJUAN
-dir = 'pertemuan_11'
+dir = 'pertemuan_10'
 
 ###########################  START  ###############################
 
@@ -98,21 +98,29 @@ IL = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
+
 funcs = []
 msg = "Daftar function yang terbaca :\n"
 index = 1
-for key, value in list(globals().items()):
-    if callable(value) and value.__module__ != __name__:
 
+for key, value in list(globals().items()):
+    
+    if callable(value) and value.__module__ != __name__ and value != '__nonzero__':
         funcs.append(key)
         msg += f"{index} => {key}\n"
         index += 1
+        
+        
+        
 if len(funcs) <= 0:
     msg += f"{'** Null **': ^25}\n"
+
 
 while True:
 
     os.system('cls' if os.name == 'nt' else "printf '\033c'")
+    print("\033[H\033[J", end="")
+    
     ascii = ASCII().decode(IL)
     print(ascii + "\n" + msg)
     p = input("Masukan pilihan : ")

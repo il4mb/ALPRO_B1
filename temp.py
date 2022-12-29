@@ -6,55 +6,58 @@
 This file is auto-generated in main.py and used for main.py, run main.py to run the code in this file
 File ini dibuat otomatis di main.py dan digunakan untuk main.py, jalankan main.py untuk menjalan kode  di file ini
 
-Generated : 2022-12-29 18:36:14.461298
+Generated : 2022-12-29 18:57:09.546402
 """
-def MenghitungStatistic() :
+def Faktorial(bilangan:str) :
 
-    ListNilaiUAS = [77,75,85,78,87,79,84,93,55,80,76]
-    ListNilaiUTS = [67,76,55,88,91,100,88,83,45,89,75]
+    out = ""
+    if bilangan.isdigit() :
+        borrow = 1
+        for x in range( 1 , int(bilangan)+1) :
+            out += f"{x: <3} faktorial => {x * borrow}\n"
+            borrow = x * borrow
 
-    def statistik(code, array) :
+    return out
 
-        out = f"{code.upper()}\n"
-        out += f"{'Nilai tertinggi': <17} : {max(array)}\n"
-        out += f"{'Nilai terendah': <17} : {min(array)}\n"
-        out += f"{'Jumlah nilai': <17} : {sum(array)}\n"
-        out += f"{'Rata-rata nilai': <17} : {average(array)}\n"
-        return out
+def Fibonanci(param:str) :
+    out = ""
+    if param.isnumeric() :
+        param = int(param)
+        a,b=0,1
+        while b < param :
+            out += f"{b}\n"
+            a,b = b, int(a+b)
+    return out
 
+def IsPrime(param) :
 
-    def min(array) :
+    if param.isnumeric() :
+        x = int(param)
+        if x == 2 or x == 3 : return True
+        if x%2 == 0 or x < 2 : return False
+        for i in range(3, int(x**.5)+1, 2) :
+            if x%i == 0 :
+                return False
+        return True
+    return False
 
-        val = int(array.__getitem__(0))
-        for x in array:
-            x = int(x)
-            if x < val:
-                val = x
-        return val
+def Mengurutkan(array) :
+    
+    lis = list(array)
 
-    def max(array) :
+    for i in range(len(lis) -1, -1, -1) :
+        for ii in range(0, i) :
 
-        val = int(array.__getitem__(0))
-        for x in array:
-            x = int(x)
-            if x > val:
-                val = x
-        return val
+            try :
+                if int(lis[i]) < int(lis[ii]) :
+                    tem = int(lis[i])
+                    lis[i] = int(lis[ii])
+                    lis[ii] = tem
+            except :
+                if ord(lis[i]) < ord(lis[ii]) :
+                    tem = lis[i]
+                    lis[i] = lis[ii]
+                    lis[ii] = tem
 
-    def sum(array) :
-
-        total = 0
-        for x in array :
-            total += x
-        return total 
-
-    def average(array) :
-        _len = len(array)
-        _ttl = sum(array)
-        return float(_ttl/_len)
-
-    UAS = statistik("UAS",ListNilaiUAS)
-    UTS = statistik("UTS",ListNilaiUTS)
-
-    return f"{UAS}\n{UTS}"
+    return f"output => {lis}"
 

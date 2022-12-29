@@ -3,10 +3,10 @@ import os, datetime
 
 
 # EDIT GANTI MENJADI FOLDER TUJUAN
-dir = '/pertemuan_10'
+dir = 'pertemuan_9'
 
 ###########################  START  ###############################
-def readLines(file):
+def readLines(file : str):
     lines = list()
     with open(file) as f:
         lines = f.readlines()
@@ -29,16 +29,16 @@ with open("temp.py", "w") as f:
 
 from temp import *
 
-fun = []
+funcs = []
 msg = "Daftar function yang terbaca :\n"
 index = 1
 for key, value in list(globals().items()):
     if callable(value) and value.__module__ != __name__:
 
-        fun.append(key)
+        funcs.append(key)
         msg += f"{index} => {key}\n"
         index +=1
-if len(fun) <= 0 :
+if len(funcs) <= 0 :
     msg += f"{'** Null **': ^25}\n"
 
 while True :
@@ -47,22 +47,50 @@ while True :
     print(msg)
     p = input("Masukan pilihan : ")
 
-    if p.isnumeric() and int(p) > 0 and int(p) <= len(fun):
-        p = fun[int(p)-1]
+    if p.isnumeric() and int(p) > 0 and int(p) <= len(funcs):
 
-        print("Selisihkan dengan komma untuk array!!!")
-        params = input("Masukan parameter : ")
-        
+
+        fun = locals()[funcs[int(p)-1]]
+
+
+        parameters = list()
+
+        print("Pisakan dengan komma untuk membuat array")
+        for x in range(0, int(fun.__code__.co_argcount)) :
+
+            param = fun.__code__.co_varnames[x]
+
+            inp = input(f"Masukan nilai ({param}) : ")
+            
+            if inp.__contains__(",") :
+                inp = inp.split(",")
+
+            parameters.append(inp)
+
+
+        parameters = tuple(parameters)
+
+
         try :
-            hasil = locals()[p](params)
+
+
+            hasil = fun(*parameters)
+
             if hasil == None or len(hasil) <= 0 :
                 hasil = f"{'Tidak ada hasil': ^25}"
-            print(f"{hasil}")
-                
+
+            print(hasil)
+
+
         except :
+
             print("Error...")
 
+
+
         (lambda : input("\nPress enter!!!"))()
+
+
     else :
         print("Pilihan tidak valid!!!")
 

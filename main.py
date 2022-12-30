@@ -26,6 +26,7 @@ with open("temp.py", "w") as f:
 
 ###########################  END  ###############################
 
+# IMPORT INI HARUS BERADA DI SINI 
 from temp import *
 
 class ASCII:

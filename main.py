@@ -1,6 +1,4 @@
-import glob
-import os
-import datetime
+import glob, os, datetime
 
 
 # EDIT GANTI MENJADI FOLDER TUJUAN

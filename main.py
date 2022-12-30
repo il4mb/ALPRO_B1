@@ -17,7 +17,7 @@ def readLines(file: str):
 main_dir = os.path.join(os.getcwd(), dir)
 modules = glob.glob(os.path.join(main_dir, "*.py"))
 with open("temp.py", "w") as f:
-    f.write(f"\"\"\"\n{'THIS FILE CREATE PROGRAMATICALLY': ^50}\n{'FILE INI DIBUAT SECARA OTOMATIS': ^50}\n{'!!!TIDAK PERLU MENGEDIT DILE INI!!!': ^50}\n\nThis file is auto-generated in main.py and used for main.py, run main.py to run the code in this file\nFile ini dibuat otomatis di main.py dan digunakan untuk main.py, jalankan main.py untuk menjalan kode  di file ini\n\nGenerated : {datetime.datetime.now()}\n\"\"\"\n")
+    f.write(f"\"\"\"\n{'THIS FILE CREATE AUTOMATICALLY': ^50}\n{'FILE INI DIBUAT SECARA OTOMATIS': ^50}\n{'!!!TIDAK PERLU MENGEDIT DILE INI!!!': ^50}\n\nThis file is auto-generated in main.py and used for main.py, run main.py to run the code in this file\nFile ini dibuat otomatis di main.py dan digunakan untuk main.py, jalankan main.py untuk menjalan kode  di file ini\n\nGenerated : {datetime.datetime.now()}\n\"\"\"\n")
     for fp in modules:
         lines = readLines(fp)
         for line in lines:
